@@ -2,33 +2,54 @@
 import { useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { KanbanBoard, KanbanCard, KanbanCards, KanbanHeader, KanbanProvider } from '@/components/management/Kanban';
-import { faker } from '@faker-js/faker';
 
 
-const capitalize = (str: string) =>
-  str.charAt(0).toUpperCase() + str.slice(1);
 const columns = [
-  { id: faker.string.uuid(), name: "Planned", color: "#6B7280" },
-  { id: faker.string.uuid(), name: "In Progress", color: "#F59E0B" },
-  { id: faker.string.uuid(), name: "Done", color: "#10B981" },
+  { id: "planned-col", name: "Planned", color: "#6B7280" },
+  { id: "in-progress-col", name: "In Progress", color: "#F59E0B" },
+  { id: "done-col", name: "Done", color: "#10B981" },
 ];
-const users = Array.from({ length: 4 })
-  .fill(null)
-  .map(() => ({
-    id: faker.string.uuid(),
-    name: faker.person.fullName(),
-    image: faker.image.avatar(),
-  }));
-const exampleFeatures = Array.from({ length: 20 })
-  .fill(null)
-  .map(() => ({
-    id: faker.string.uuid(),
-    name: capitalize(faker.company.buzzPhrase()),
-    startAt: faker.date.past({ years: 0.5, refDate: new Date() }),
-    endAt: faker.date.future({ years: 0.5, refDate: new Date() }),
-    column: faker.helpers.arrayElement(columns).id,
-    owner: faker.helpers.arrayElement(users),
-  }));
+
+const users = [
+  {
+    id: "user-1",
+    name: "Alice Johnson",
+    image: "https://i.pravatar.cc/100?img=1",
+  },
+  {
+    id: "user-2",
+    name: "Bob Smith",
+    image: "https://i.pravatar.cc/100?img=2",
+  },
+];
+
+const exampleFeatures = [
+  {
+    id: "task-1",
+    name: "Reinvent revolutionary platforms",
+    column: "planned-col",
+    startAt: new Date("2024-03-01"),
+    endAt: new Date("2024-03-15"),
+    owner: users[0],
+  },
+  {
+    id: "task-2",
+    name: "Streamline end-to-end solutions",
+    column: "planned-col",
+    startAt: new Date("2024-03-16"),
+    endAt: new Date("2024-04-01"),
+    owner: users[1],
+  },
+  {
+    id: "task-3",
+    name: "Optimize mission-critical deliverables",
+    column: "planned-col",
+    startAt: new Date("2024-04-02"),
+    endAt: new Date("2024-04-20"),
+    owner: users[0],
+  },
+];
+
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "short",
   day: "numeric",
