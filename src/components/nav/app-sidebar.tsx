@@ -26,6 +26,7 @@ const data = {
         {
           title: "Grammar and types",
           url: "/grammarAndTypes",
+          isActive: true,
         },
       ],
     },
