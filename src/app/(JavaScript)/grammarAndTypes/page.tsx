@@ -1,7 +1,34 @@
+"use client";
+
+import {
+  BundledLanguage,
+  CodeBlock,
+  CodeBlockBody,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockFilename,
+  CodeBlockFiles,
+  CodeBlockHeader,
+  CodeBlockItem,
+  CodeBlockSelect,
+  CodeBlockSelectContent,
+  CodeBlockSelectItem,
+  CodeBlockSelectTrigger,
+  CodeBlockSelectValue,
+} from "@/components/code/CodeBlock";
 import Heading from "@/components/Typography/Heading";
 import TypographyBlockquote from "@/components/Typography/TypographyBlockquote";
 import { Badge } from "@/components/ui/badge";
 import React from "react";
+
+const code = [
+  {
+    language: "js",
+    filename: "exemple.js",
+    code: `let x;
+console.log(x); // logs "undefined"`,
+  },
+];
 
 export default function GrammarAndTypespage() {
   return (
@@ -118,6 +145,45 @@ export default function GrammarAndTypespage() {
           optional. If a variable is declared without an initializer, it is
           assigned the value undefined.
         </TypographyBlockquote>
+        <CodeBlock data={code} defaultValue={code[0].language}>
+          <CodeBlockHeader>
+            <CodeBlockFiles>
+              {(item) => (
+                <CodeBlockFilename key={item.language} value={item.language}>
+                  {item.filename}
+                </CodeBlockFilename>
+              )}
+            </CodeBlockFiles>
+            <CodeBlockSelect>
+              <CodeBlockSelectTrigger>
+                <CodeBlockSelectValue />
+              </CodeBlockSelectTrigger>
+              <CodeBlockSelectContent>
+                {(item) => (
+                  <CodeBlockSelectItem
+                    key={item.language}
+                    value={item.language}
+                  >
+                    {item.language}
+                  </CodeBlockSelectItem>
+                )}
+              </CodeBlockSelectContent>
+            </CodeBlockSelect>
+            <CodeBlockCopyButton
+              onCopy={() => console.log("Copied code to clipboard")}
+              onError={() => console.error("Failed to copy code to clipboard")}
+            />
+          </CodeBlockHeader>
+          <CodeBlockBody>
+            {(item) => (
+              <CodeBlockItem key={item.language} value={item.language}>
+                <CodeBlockContent language={item.language as BundledLanguage}>
+                  {item.code}
+                </CodeBlockContent>
+              </CodeBlockItem>
+            )}
+          </CodeBlockBody>
+        </CodeBlock>
       </section>
     </main>
   );
