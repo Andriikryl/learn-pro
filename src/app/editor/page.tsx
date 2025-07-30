@@ -5,7 +5,12 @@ import { AppWindowIcon, CodeIcon, TerminalIcon } from "lucide-react";
 import { SandboxCodeEditor, SandboxConsole, SandboxLayout, SandboxPreview, SandboxProvider, SandboxTabs, SandboxTabsContent, SandboxTabsList, SandboxTabsTrigger } from "@/components/code/Editor";
 export default function Editor() {
   return (
-    <SandboxProvider>
+    <SandboxProvider
+    options={{
+        autorun: false,
+        recompileMode: 'delayed'
+      }}
+    >
       <SandboxLayout>
         <SandboxTabs defaultValue="preview">
           <SandboxTabsList>
