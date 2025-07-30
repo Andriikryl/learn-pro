@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { KanbanBoard, KanbanCard, KanbanCards, KanbanHeader, KanbanProvider } from '@/components/management/Kanban';
 
-
 const columns = [
   { id: "planned-col", name: "Planned", color: "#6B7280" },
   { id: "in-progress-col", name: "In Progress", color: "#F59E0B" },

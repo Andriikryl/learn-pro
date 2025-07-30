@@ -30,6 +30,10 @@ const data = {
         },
       ],
     },
+    {
+      title: "Editor",
+      url: "/editor",
+    }
 
   ],
 }
