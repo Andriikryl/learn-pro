@@ -8,8 +8,10 @@ export default function Editor() {
     <SandboxProvider
     options={{
         autorun: false,
-        recompileMode: 'delayed'
+        recompileMode: 'delayed',
+        recompileDelay: 1000,
       }}
+      
     >
       <SandboxLayout>
         <SandboxTabs defaultValue="preview">
