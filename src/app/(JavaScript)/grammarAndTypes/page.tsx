@@ -141,6 +141,57 @@ const templateLiterals = [
   },
 ];
 
+const task2 = [
+  {
+    filename: "strings.js",
+    language: "js" as BundledLanguage,
+    code: `var a = 1;
+let b = 2;
+const c = 3;
+
+// Попробуй изменить значения:
+a = 10;
+b = 20;
+c = 30; // Что произойдет?`,
+  },
+];
+const task3 = [
+  {
+    filename: "strings.js",
+    language: "js" as BundledLanguage,
+    code: `console.log(x); // Что выведется?
+var x = 5;`,
+  },
+];
+const task4 = [
+  {
+    filename: "strings.js",
+    language: "js" as BundledLanguage,
+    code: `console.log(y);
+let y = 10;`,
+  },
+];
+
+const task5 = [
+  {
+    filename: "strings.js",
+    language: "js" as BundledLanguage,
+    code: `let x = "5" + 2;
+let y = "5" - 2;
+let z = "5" * "2";`,
+  },
+];
+
+const task6 = [
+  {
+    filename: "strings.js",
+    language: "js" as BundledLanguage,
+    code: `const obj = { key: "value" };
+const arr = [1, 2, 3];`,
+  },
+];
+
+
 export default function GrammarAndTypespage() {
   return (
     <main>
@@ -895,6 +946,246 @@ export default function GrammarAndTypespage() {
           features in Perl, Python, and more.)
         </p>
         <CodeBlock data={templateLiterals} defaultValue={code[0].language}>
+          <CodeBlockHeader>
+            <CodeBlockFiles>
+              {(item) => (
+                <CodeBlockFilename key={item.language} value={item.language}>
+                  {item.filename}
+                </CodeBlockFilename>
+              )}
+            </CodeBlockFiles>
+            <CodeBlockSelect>
+              <CodeBlockSelectTrigger>
+                <CodeBlockSelectValue />
+              </CodeBlockSelectTrigger>
+              <CodeBlockSelectContent>
+                {(item) => (
+                  <CodeBlockSelectItem
+                    key={item.language}
+                    value={item.language}
+                  >
+                    {item.language}
+                  </CodeBlockSelectItem>
+                )}
+              </CodeBlockSelectContent>
+            </CodeBlockSelect>
+            <CodeBlockCopyButton
+              onCopy={() => console.log("Copied code to clipboard")}
+              onError={() => console.error("Failed to copy code to clipboard")}
+            />
+          </CodeBlockHeader>
+          <CodeBlockBody>
+            {(item) => (
+              <CodeBlockItem key={item.language} value={item.language}>
+                <CodeBlockContent language={item.language as BundledLanguage}>
+                  {item.code}
+                </CodeBlockContent>
+              </CodeBlockItem>
+            )}
+          </CodeBlockBody>
+        </CodeBlock>
+        <Heading level={2}>Tasks</Heading>
+        <p>
+          Задание 1: Создай переменную с именем Früh и присвой ей строку{" "}
+          {'"Доброе утро"'}. Затем создай другую переменную früh и присвой ей
+          строку {'"Доброй ночи"'}. Выведи обе переменные в консоль.
+        </p>
+        <p>
+          Задание 2: Создай переменные с помощью var, let, и const. Попробуй
+          изменить их значения и посмотри, какие ошибки произойдут (или не
+          произойдут).
+        </p>
+        <CodeBlock data={task2} defaultValue={code[0].language}>
+          <CodeBlockHeader>
+            <CodeBlockFiles>
+              {(item) => (
+                <CodeBlockFilename key={item.language} value={item.language}>
+                  {item.filename}
+                </CodeBlockFilename>
+              )}
+            </CodeBlockFiles>
+            <CodeBlockSelect>
+              <CodeBlockSelectTrigger>
+                <CodeBlockSelectValue />
+              </CodeBlockSelectTrigger>
+              <CodeBlockSelectContent>
+                {(item) => (
+                  <CodeBlockSelectItem
+                    key={item.language}
+                    value={item.language}
+                  >
+                    {item.language}
+                  </CodeBlockSelectItem>
+                )}
+              </CodeBlockSelectContent>
+            </CodeBlockSelect>
+            <CodeBlockCopyButton
+              onCopy={() => console.log("Copied code to clipboard")}
+              onError={() => console.error("Failed to copy code to clipboard")}
+            />
+          </CodeBlockHeader>
+          <CodeBlockBody>
+            {(item) => (
+              <CodeBlockItem key={item.language} value={item.language}>
+                <CodeBlockContent language={item.language as BundledLanguage}>
+                  {item.code}
+                </CodeBlockContent>
+              </CodeBlockItem>
+            )}
+          </CodeBlockBody>
+        </CodeBlock>
+        <p>
+          Задание 3: Внутри блока if (true) создай переменные x и y с помощью
+          var и let, затем выведи их за пределами блока. Объясни поведение.
+        </p>
+        <p>
+          Задание 4: Предскажи результат выполнения следующего кода и объясни,
+          почему он такой:
+        </p>
+        <CodeBlock data={task3} defaultValue={code[0].language}>
+          <CodeBlockHeader>
+            <CodeBlockFiles>
+              {(item) => (
+                <CodeBlockFilename key={item.language} value={item.language}>
+                  {item.filename}
+                </CodeBlockFilename>
+              )}
+            </CodeBlockFiles>
+            <CodeBlockSelect>
+              <CodeBlockSelectTrigger>
+                <CodeBlockSelectValue />
+              </CodeBlockSelectTrigger>
+              <CodeBlockSelectContent>
+                {(item) => (
+                  <CodeBlockSelectItem
+                    key={item.language}
+                    value={item.language}
+                  >
+                    {item.language}
+                  </CodeBlockSelectItem>
+                )}
+              </CodeBlockSelectContent>
+            </CodeBlockSelect>
+            <CodeBlockCopyButton
+              onCopy={() => console.log("Copied code to clipboard")}
+              onError={() => console.error("Failed to copy code to clipboard")}
+            />
+          </CodeBlockHeader>
+          <CodeBlockBody>
+            {(item) => (
+              <CodeBlockItem key={item.language} value={item.language}>
+                <CodeBlockContent language={item.language as BundledLanguage}>
+                  {item.code}
+                </CodeBlockContent>
+              </CodeBlockItem>
+            )}
+          </CodeBlockBody>
+        </CodeBlock>
+        <p>Задание 5: Объясни, почему следующий код вызывает ошибку:</p>
+        <CodeBlock data={task4} defaultValue={code[0].language}>
+          <CodeBlockHeader>
+            <CodeBlockFiles>
+              {(item) => (
+                <CodeBlockFilename key={item.language} value={item.language}>
+                  {item.filename}
+                </CodeBlockFilename>
+              )}
+            </CodeBlockFiles>
+            <CodeBlockSelect>
+              <CodeBlockSelectTrigger>
+                <CodeBlockSelectValue />
+              </CodeBlockSelectTrigger>
+              <CodeBlockSelectContent>
+                {(item) => (
+                  <CodeBlockSelectItem
+                    key={item.language}
+                    value={item.language}
+                  >
+                    {item.language}
+                  </CodeBlockSelectItem>
+                )}
+              </CodeBlockSelectContent>
+            </CodeBlockSelect>
+            <CodeBlockCopyButton
+              onCopy={() => console.log("Copied code to clipboard")}
+              onError={() => console.error("Failed to copy code to clipboard")}
+            />
+          </CodeBlockHeader>
+          <CodeBlockBody>
+            {(item) => (
+              <CodeBlockItem key={item.language} value={item.language}>
+                <CodeBlockContent language={item.language as BundledLanguage}>
+                  {item.code}
+                </CodeBlockContent>
+              </CodeBlockItem>
+            )}
+          </CodeBlockBody>
+        </CodeBlock>
+        <p>
+          Задание 6 : Преобразуй строку {'"42"'} в число и сложи с числом 8.
+          Выведи результат двумя способами: С помощью Number() С помощью
+          унарного плюса +
+        </p>
+        <p>Задание 7: Какие будут значения переменных?</p>
+        <CodeBlock data={task5} defaultValue={code[0].language}>
+          <CodeBlockHeader>
+            <CodeBlockFiles>
+              {(item) => (
+                <CodeBlockFilename key={item.language} value={item.language}>
+                  {item.filename}
+                </CodeBlockFilename>
+              )}
+            </CodeBlockFiles>
+            <CodeBlockSelect>
+              <CodeBlockSelectTrigger>
+                <CodeBlockSelectValue />
+              </CodeBlockSelectTrigger>
+              <CodeBlockSelectContent>
+                {(item) => (
+                  <CodeBlockSelectItem
+                    key={item.language}
+                    value={item.language}
+                  >
+                    {item.language}
+                  </CodeBlockSelectItem>
+                )}
+              </CodeBlockSelectContent>
+            </CodeBlockSelect>
+            <CodeBlockCopyButton
+              onCopy={() => console.log("Copied code to clipboard")}
+              onError={() => console.error("Failed to copy code to clipboard")}
+            />
+          </CodeBlockHeader>
+          <CodeBlockBody>
+            {(item) => (
+              <CodeBlockItem key={item.language} value={item.language}>
+                <CodeBlockContent language={item.language as BundledLanguage}>
+                  {item.code}
+                </CodeBlockContent>
+              </CodeBlockItem>
+            )}
+          </CodeBlockBody>
+        </CodeBlock>
+        <p>
+          Задание 8: Создай массив с названиями любимых блюд. Выведи третий
+          элемент массива в консоль.
+        </p>
+        <p>
+          Задание 9: Создай объект person с полями name, age и isStudent. Выведи
+          имя и возраст в консоль.
+        </p>
+        <p>
+          Задание 10: Создай объект car с вложенным объектом engine, содержащим
+          поле horsePower. Выведи car.engine.horsePower.
+        </p>
+        <p>
+          Задание 11: Создай переменные name и hobby, и используй template
+          literal, чтобы вывести строку: Привет, меня зовут [name]. Я люблю
+          [hobby].
+        </p>
+        <p>Задание 12:
+        Объяви const объект и массив. Попробуй изменить их содержимое (не саму переменную, а вложенные значения).</p>
+        <CodeBlock data={task6} defaultValue={code[0].language}>
           <CodeBlockHeader>
             <CodeBlockFiles>
               {(item) => (
