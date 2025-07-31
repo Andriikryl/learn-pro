@@ -28,6 +28,11 @@ const data = {
           url: "/grammarAndTypes",
           isActive: false,
         },
+        {
+          title: "For",
+          url: "/for",
+          isActive: false,
+        },
       ],
     },
     {
