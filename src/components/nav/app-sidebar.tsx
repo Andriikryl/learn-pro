@@ -33,6 +33,11 @@ const data = {
           url: "/for",
           isActive: false,
         },
+        {
+          title: "Number",
+          url: "/number",
+          isActive: false,
+        },
       ],
     },
     {
